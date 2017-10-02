@@ -117,6 +117,10 @@ figure
 plot3(X_test(:,1),X_test(:,2),PredFinalActive,'*','MarkerSize',1)
 hold on
 plot3(X_test(:,1),X_test(:,2),Y_test,'*','MarkerSize',1)
+title('Surface Predictions')
+xlabel('gNa')
+ylabel('gKr')
+zlabel('APD90')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Plot prediction errors
@@ -126,4 +130,10 @@ LocError=find(Error>20);
 length(LocError)
 figure
 plot3(X_test(:,1),X_test(:,2),Error,'*','MarkerSize',1)
-
+title('Error Surface')
+xlabel('gNa')
+ylabel('gKr')
+zlabel('mean absolute error')
+% Clean-up
+command='rm -rf *.txt';
+system(command);

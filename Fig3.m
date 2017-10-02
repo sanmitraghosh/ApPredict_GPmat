@@ -127,3 +127,7 @@ save('surfActive2D.mat')
 command='rm -rf *.txt';
 system(command);
 dlmwrite('GridLabels.txt',labelGrid);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Call up evaluation script to compare with random learning
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Fig3a
