@@ -24,7 +24,7 @@ RoundsSurf=100;
 RoundsClass=8;
 Telapsed=zeros(1000,1);
 STOPCLASS=CScale + RoundsClass*AScale;
-STOPSURF=CScale + RoundsSurf*AScale;
+STOPSURF=CScale + RoundsSurf*AScale/AScale;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Pass al GP related information using the gpoptions structure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
