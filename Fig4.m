@@ -16,14 +16,14 @@
 close all
 clear all
 startup
-load('Alearning_2D_10k_Train.mat');%Change this with 'Alearning_4D_100k_Train.mat' for 4D
+load('Alearning_4D_100k_Train.mat');%Change this with 'Alearning_4D_100k_Train.mat' for 4D
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Pass al GP related information using the gpoptions structure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-CScale=50;
+CScale=150;
 AScale=25;
-Rounds=8;
+Rounds=12;
 STOPCLASS=CScale + Rounds*AScale;
 gpoptions.pacing=100;
 gpoptions.NumInducingClass=300;

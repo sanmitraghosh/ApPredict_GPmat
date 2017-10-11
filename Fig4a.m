@@ -13,7 +13,7 @@ clear all
 startup
 
 ActiveData=load('classActive2D.mat');
-TestData=load('Alearning_2D_10k_Grid.mat');%Change this with 'Alearning_4D_100k_Test.mat' for 4D
+TestData=load('Alearning_4D_100k_Test.mat');%Change this with 'Alearning_4D_100k_Test.mat' for 4D
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Pass al GP related information using the gpoptions structure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

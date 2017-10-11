@@ -17,16 +17,16 @@
 close all
 clear all
 startup
-load('Alearning_2D_10k_Train.mat');%Change this with 'Alearning_4D_100k_Train.mat' for 4D
+load('Alearning_4D_100k_Train.mat');%Change this with 'Alearning_4D_100k_Train.mat' for 4D
 
 GridData=load('Alearning_2D_10k_Grid.mat');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Pass al GP related information using the gpoptions structure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-CScale=50;
+CScale=500;
 AScale=1;
-Rounds=100;
+Rounds=2500;
 STOPSURF=CScale + Rounds*AScale;
 gpoptions.pacing=100;
 gpoptions.NumInducingClass=300;
@@ -35,8 +35,8 @@ gpoptions.NumInducingSurf=1000;
 gpoptions.sparseMarginSurf=10000;
 gpoptions.classHyperParams.minimize=0;
 gpoptions.surfHyperParams.minimize=0;
-gpoptions.covarianceKernels=@covRQiso;%{'covMaterniso',5};
-gpoptions.covarianceKernelsParams=[0.1;0.21;1];%[0.1;1.20];
+gpoptions.covarianceKernels=@covNNone;%@covRQiso;%{'covMaterniso',5};
+gpoptions.covarianceKernelsParams=[0.1;1];%[0.1;0.21;1];%[0.1;1.20];
 gpoptions.likelihoodParams=0.015;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,7 +97,7 @@ gpoptions.STOP=STOPSURF;
 gpoptions.AScale=AScale;
 gpoptions.classHyperParams.minimize=0;
 gpoptions.surfAlClass=1;
-gpoptions.pltDisabled=0; % Turning it on starts plotting contour plots (slow)
+gpoptions.pltDisabled=1; % Turning it on starts plotting contour plots (slow)
 gpoptions.ALtime=ones(100,1);
 [ X_intellitrain, Y_intellitrain ] = intelligentTraining( x_Initrandom, y_Initrandom, gpoptions );
 close all;
@@ -126,7 +126,9 @@ save('surfActive2D.mat')
 % Clean-up
 command='rm -rf *.txt';
 system(command);
-dlmwrite('GridLabels.txt',labelGrid);
+if size(gk,2)==2
+    dlmwrite('GridLabels.txt',labelGrid);
+end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Call up evaluation script to compare with random learning
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

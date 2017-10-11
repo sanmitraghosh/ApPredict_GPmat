@@ -11,13 +11,13 @@ tic
 toc
 
 save('Alearning_2D_10k_Grid.mat');
-% clear all;
-% gk=unifrnd(0,1,4,100000)';
+clear 
+gk=unifrnd(0,1,4,100000)';
 % gk(:,3)=1;gk(:,4)=1;
-% tic
-% [APDtrue]=EvaluateAPD(gk,100);
-% toc
-% save('Alearning_2D_100k_Test.mat');
+tic
+[APDtrue]=EvaluateAPD(gk,100);
+toc
+save('Alearning_4D_100k_Test.mat');
 exit;
 
 % steps=linspace(0,100000,100000)';
